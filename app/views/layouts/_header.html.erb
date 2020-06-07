@@ -1,0 +1,27 @@
+
+<header class="blog-header py-3">
+
+  <div class="row flex-nowrap justify_content_between align-items-center">
+    <div class="col-4" >
+      <% if account_signed_in?%>
+        <p style="margin:auto;font-style:italic;font-size:20pxc;color:white"><%= current_account.full_name %></p>
+      <% end %>
+    </div>
+
+    <div class="col-4 text-center " style="font-size:32px">
+      <span class="blog-header-logo text-light" href="#">
+        <%= link_to 'Rails Blog', home_path, {:style=>'color:#ffffff;font-weight:bold', :class => "css_class"} %>
+      </span>
+    </div>
+
+    <div class="float-right col-4 d-flex justify-content-end">
+      <% if account_signed_in?%>
+        <%= link_to '<button type="button" style="margin-right:10px;" class="btn btn-light">New Post</button>'.html_safe, new_post_path %>
+        <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "btn btn-primary"  %>
+      <% else %>
+        <%= link_to "Log In", new_account_session_path,class: "btn btn-outline-primary", style: "margin-right:10px;"  %>
+        <%= link_to "Sign Up", new_account_registration_path,class: "btn btn-primary"  %>
+      <% end %>
+    </div>
+</header>
+<%= render partial: 'layouts/navbar' %>

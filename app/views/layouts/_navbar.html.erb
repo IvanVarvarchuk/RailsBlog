@@ -1,0 +1,9 @@
+<div class="nav-scroller py-1 mb-2">
+  <nav class="navbar d-flex justify-content-between">
+    <%if @categories %>
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category.id),{:style=>'color:#000000;'}%>
+      <% end %>
+    <% end %>
+  </nav>
+</div>

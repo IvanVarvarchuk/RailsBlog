@@ -1,0 +1,18 @@
+<div class="row mb-2">
+
+  <% @posts.each do |post| %>
+
+    <div class="col-md-6 ">
+      <% if account_signed_in?%>
+        <% if post.account_id == current_account.id%>
+          <%= render partial: 'layouts/post_colored_card', locals: {post: post} %>
+        <% else %>
+          <%= render partial: 'layouts/post_card', locals: {post: post} %>
+        <% end %>
+      <% else %>
+        <%= render partial: 'layouts/post_card', locals: {post: post} %>
+      <% end %>
+      </div>
+  <% end %>
+
+</div>
